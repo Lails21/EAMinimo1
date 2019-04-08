@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Station } from 'src/app/models/station';
 import { StationService } from 'src/app/services/station.service';
+import { Bike } from 'src/app/models/bike';
 
 @Component({
   selector: 'app-stationdetail',
@@ -11,9 +12,11 @@ import { StationService } from 'src/app/services/station.service';
 export class StationdetailComponent implements OnInit {
 
   station: Station;
+  bike: Bike;
 
   constructor(private activatedRouter: ActivatedRoute, private stationService: StationService) { 
     this.station = new Station();
+    this.bike = new Bike();
   }
 
   ngOnInit() {

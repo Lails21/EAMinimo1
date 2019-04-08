@@ -1,3 +1,4 @@
+import { Bike } from './bike';
 export class Station {
 
     constructor(_id = '', station = '', state = '', description = '', bikes = null){
@@ -12,5 +13,5 @@ export class Station {
     station: string;
     state: string;
     description: string;
-    bikes: [];
+    bikes: Bike[];
 }

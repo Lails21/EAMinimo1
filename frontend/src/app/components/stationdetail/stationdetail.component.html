@@ -1,22 +1,39 @@
-<div class="container">
-  <div class="row">
-      <div class="col s7">
-          <h2>All Bikes</h2>
-        <table>
-          <thead>
-            <th>Bike</th>
-            <th>Kms</th>
-            <th>Description</th>
-            <th>Delete</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let station of stationsList">
-              <td>{{station.station}}</td>
-              <td>{{station.state}}</td>
-              <td>{{station.description}}</td>
-              <button class="btn right" [routerLink]="['/stations', station._id]">Details of a Station</button>
-            </tr>
-          </tbody>
-        </table>
-       </div>
-      </div>
+<h3 class="title">{{stationBikeDetail.station}}: Current Bikes</h3>
+
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <th scope="col">Bike</th>
+    <th scope="col">Kms</th>
+    <th scope="col">Description</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bike of stationBikeDetail.bikes; let i=index">
+      <td>{{bike.bike}}</td>
+      <td>{{bike.kms}}</td>
+      <td>
+        {{bike.description}}
+        <button class="btn btn-danger" type="button" (click)="deleteBikeStation(bike._id, i)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="title">Unassigned Bikes</h3>
+
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+  <th scope="col">Bike</th>
+  <th scope="col">Kms</th>
+  <th scope="col">Description</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let bike of unassignedBikes; let i=index">
+    <td>{{bike.bike}}</td>
+    <td>{{bike.kms}}</td>
+    <td>
+      {{bike.description}}
+      <button class="btn btn-success" type="button" (click)="addBikeStation(bike._id, i)">+</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

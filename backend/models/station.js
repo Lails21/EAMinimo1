@@ -8,4 +8,6 @@ const StationSchema = new Schema({
     bikes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Bike', unique: false}]
 });
 
+
+
 module.exports = mongoose.model('Station', StationSchema);

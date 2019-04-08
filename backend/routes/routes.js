@@ -5,6 +5,7 @@ const BikeCtrl = require('../controllers/bike.controller')
 
 router.get('/stations', StationCtrl.getStations);
 router.get('/stations/:id', StationCtrl.getStationDetail);
+router.put('/stations', StationCtrl.putBikeStation);
 
 router.get('/bikes', BikeCtrl.getBikes);
 router.post('/bikes', BikeCtrl.postBike);
