@@ -14,6 +14,7 @@ export class MainComponent implements OnInit {
   constructor(private stationService: StationService) { }
 
   ngOnInit() {
+    this.getStations();
   }
 
   getStations(){
