@@ -1,39 +1,49 @@
-<h3 class="title">{{stationBikeDetail.station}}: Current Bikes</h3>
+<div class="container">
+  <div class="row">
+      <div class="col s7">
+          <h2>Station Detail of {{station.station}}</h2>
+        <table>
+          <thead>
+            <th>Name</th>
+            <th>Kms</th>
+            <th>Description</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bike of station.bike">
+              <td>{{bike.bike}}</td>
+              <td>{{bike.kms}}</td>
+              <td>{{bike.description}}</td>
+              <a (click)=deleteBikeStation(bike._id)>
+                <i class="material-icons">delete</i>
+              </a>
+            </tr>
+          </tbody>
+        </table>
+       </div>
+      </div>
 
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-    <th scope="col">Bike</th>
-    <th scope="col">Kms</th>
-    <th scope="col">Description</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let bike of stationBikeDetail.bikes; let i=index">
-      <td>{{bike.bike}}</td>
-      <td>{{bike.kms}}</td>
-      <td>
-        {{bike.description}}
-        <button class="btn btn-danger" type="button" (click)="deleteBikeStation(bike._id, i)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+      <div class="col s7">
+          <h2>Unassigned Bikes</h2>
+        <table>
+          <thead>
+            <th>Name</th>
+            <th>Kms</th>
+            <th>Description</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bike of bikesList">
+              <td>{{bike.bike}}</td>
+              <td>{{bike.kms}}</td>
+              <td>{{bike.description}}</td>
+              <a (click)=putBikeStation(bike._id)>
+                <i class="material-icons">add</i>
+              </a>
+            </tr>
+          </tbody>
+        </table>
+       </div>
+      
 
-<h3 class="title">Unassigned Bikes</h3>
-
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-  <th scope="col">Bike</th>
-  <th scope="col">Kms</th>
-  <th scope="col">Description</th>
-  </thead>
-  <tbody>
-  <tr *ngFor="let bike of unassignedBikes; let i=index">
-    <td>{{bike.bike}}</td>
-    <td>{{bike.kms}}</td>
-    <td>
-      {{bike.description}}
-      <button class="btn btn-success" type="button" (click)="addBikeStation(bike._id, i)">+</button>
-    </td>
-  </tr>
-  </tbody>
-</table>
+  <p style="color:red;">After deleting a bike, it is necessary to refresh </p>

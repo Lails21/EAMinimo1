@@ -5,7 +5,7 @@ const StationSchema = new Schema({
     station: {type: String, required: true},
     state: {type: String, required: true},
     description: {type: String, required: true},
-    bikes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Bike', unique: false}]
+    bike: [{type: Schema.ObjectId, ref: 'Bike', unique: false, required: false}]
 });
 
 

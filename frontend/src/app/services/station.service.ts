@@ -20,7 +20,15 @@ export class StationService {
     return this.http.get<Station[]>(this.URL_API);
   }
 
-  getStationDetail(_id: string): Observable<Station>{
+  getStationDetail(_id: string):Observable<Station>{
     return this.http.get<Station>(this.URL_API + `/${_id}`);
+  }
+
+  putBikeStation(stationId: string, bikeId: string){
+    return this.http.put(this.URL_API + '/', {"stationId": stationId, "bikeId": bikeId});
+  }
+
+  deleteBikeStation(stationId: string, bikeId: string){
+    return this.http.delete(this.URL_API + `/${stationId}/${bikeId}`);
   }
 }

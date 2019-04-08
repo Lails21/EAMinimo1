@@ -1,4 +1,5 @@
 const Bike = require ('../models/bike');
+const Station = require ('../models/station');
 
 const BikeCtrl = {};
 
@@ -9,12 +10,10 @@ BikeCtrl.getBikes = async (req, res) => {
 
 
 BikeCtrl.postBike = async (req, res) => {
-    const bike = new Bike();
-    bike.bike = req.body.bike;
-    bike.kms = req.body.kms;
-    bike.description = req.body.description;
+    const bike = new Bike(req.body)
+    
 
-    console.log(bike);
+    console.log('Bike of the body', bike);
 
     try {
         await bike.save();
@@ -25,9 +24,5 @@ BikeCtrl.postBike = async (req, res) => {
     }
 }
 
-BikeCtrl.deleteBike = async (req, res) => {
-    await Bike.findByIdAndRemove(req.params.id);
-    res.json({ status: 'Bike deleted'});
-};
 
 module.exports = BikeCtrl;
