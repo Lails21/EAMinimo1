@@ -10,7 +10,7 @@ app.set('port', process.env.PORT || 3000);
 // Middlewares (ayuda para procesar los datos)
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(cors({origin: 'http://localhost:4200'}));
+app.use(cors({origin: '*'}));
 
 // Routes
 app.use(require('./routes/routes'));

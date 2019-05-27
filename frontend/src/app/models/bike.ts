@@ -7,7 +7,7 @@ export class Bike {
         this.bike = bike;
         this.kms = kms;
         this.description = description;
-        this.assigned = assigned;    
+        this.assigned = assigned;
     }
 
     _id: string;
